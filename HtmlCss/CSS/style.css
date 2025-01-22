@@ -1,0 +1,36 @@
+body {
+  background-color: #287554;
+  color: white;
+  padding: 3rem;
+}
+
+.container {
+  padding: 1rem;
+  border: 3px solid black;
+  margin: 1rem;
+  text-align: center;
+  width: 50%;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.red {
+  border: 5px solid #862600;
+  background-color: #aa5a3a;
+}
+
+.brown {
+  border: 5px solid #862600;
+  background-color: #aa7a3a;
+}
+
+.blue {
+  border: 5px dashed #697c8b;
+  background-color: #2a506d;
+}
+
+.right {
+  margin-left: 50%;
+}
