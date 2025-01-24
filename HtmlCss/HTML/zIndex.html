@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .container {
+    margin: auto;
+    text-align: center;
+  }
+
+  .cuadros {
+    height: 200px;
+    width: 50%;
+    border: 1px solid black;
+  }
+
+  .relative {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .absolute {
+    width: 50%;
+    height: 200px;
+    background-color: aquamarine;
+    position: absolute;
+    top: 100px;
+    right: 130px;
+    border: 1px solid black;
+  }
+
+  .cuadros:hover {
+    z-index: 1;
+  }
+
+  p {
+    background-color: rgb(225, 214, 116);
+    padding: 1rem;
+    border: 1px solid black;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <h1>Leyes de murphy</h1>
+    <p>Cualquier cosa que pueda ir mal, ira mal ...</p>
+    <div class="relative">
+      <div class="cuadros" style="background-color: yellow;"></div>
+      <div class="cuadros" style="background-color: orange;"></div>
+      <div class="cuadros" style="background-color: orangered;"></div>
+      <div class="cuadros" style="background-color: blueviolet;"></div>
+
+      <div class="absolute">
+
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
