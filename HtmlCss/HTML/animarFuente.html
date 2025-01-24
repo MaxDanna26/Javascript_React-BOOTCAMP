@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio CSS3 - Animar Fuentes | Pablo Monteserín</title>
+  <meta name="description"
+    content="Ejemplo de animación del sombreado de una fuente al pasar el cursor por encima cambiando los valores del estilo text-shadow">
+  <meta name="robots" content="noindex, follow">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+  span.animate-fonts {
+    text-shadow: 60px 60px 2px green, -60px -60px 2px blue, -60px 60px 2px brown, 60px -60px 2px orange;
+    transition: 1s;
+    font-size: 5rem
+  }
+
+  span.animate-fonts:hover {
+    text-shadow: -60px 60px 2px orange, 60px 60px 2px red, 60px -60px 2px green, -60px -60px 2px blue
+  }
+
+  .p {
+    padding: 2rem;
+    margin-top: 2rem;
+    background-color: salmon;
+    transition: 1s;
+  }
+
+  .p:hover {
+    background-color: aquamarine;
+  }
+
+  h3 {
+    transition: 2s;
+  }
+
+  h3:hover {
+    font-size: 4rem;
+  }
+
+  .h:hover {
+    font-size: 3rem;
+    color: red;
+  }
+
+  .o:hover {
+    font-size: 2rem;
+    color: blue;
+  }
+
+  .l:hover {
+    font-size: 3.2rem;
+    color: aqua;
+  }
+
+  .a:hover {
+    color: orange;
+    font-size: 3.4rem;
+  }
+
+  .letras {
+    transition: 2s;
+  }
+
+  span {
+    transition: 1s;
+  }
+</style>
+
+<body>
+  <span class="animate-fonts" style="margin-left:70px">hola!</span>
+
+  <p class="p">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, voluptate. Aliquam in voluptate ullam quis earum
+    ducimus doloribus atque fugit quaerat sapiente delectus, magnam, facilis rerum laborum ab debitis modi.
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione nihil reiciendis animi nam maiores, perferendis
+    fuga. Soluta eum voluptas numquam, ullam impedit aliquid, quidem amet obcaecati modi praesentium animi aperiam!
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam eum iusto reprehenderit laborum ipsam dolore
+    eligendi illo in debitis voluptatibus id tempore nam qui eaque, animi quasi vel nisi. Dignissimos?
+  </p>
+
+  <p class="letras">
+    <span class="h">H</span>
+    <span class="o">O</span>
+    <span class="l">L</span>
+    <span class="a">A</span>
+  </p>
+</body>
+
+</html>

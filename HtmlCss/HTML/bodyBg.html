@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  body {
+    background-image: url("../Img/fondo.png");
+    background-repeat: repeat-y;
+    background-position: center;
+    width: 1200px;
+    height: 100vh;
+  }
+
+  .imagenes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    max-width: 1200px;
+  }
+
+  .image {
+    width: 200px;
+    height: 200px;
+    margin-top: 10rem;
+  }
+
+  .tijeras {
+    background: url("../Img/tijeras.svg"), url("../Img/mundo.svg"), radial-gradient(circle, rgba(9, 98, 121, 1) 43%, rgba(0, 212, 255, 1) 100%);
+    width: 400px;
+    height: 400px;
+    margin: 5rem auto;
+    background-repeat: no-repeat;
+    background-size: auto, 50%, 100%;
+    background-position-x: center, 0;
+    background-position-y: bottom, top;
+    border-radius: 60%;
+  }
+</style>
+
+<body>
+
+  <div class="imagenes">
+    <img class="image" src="../Img/html-left.png" alt="Computadora rota">
+    <div class="tijeras">
+
+    </div>
+    <img class="image" src="../Img/html-right.png" alt="Loco nervioso">
+  </div>
+
+</body>
+
+</html>
