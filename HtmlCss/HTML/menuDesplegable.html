@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu desplegable</title>
+</head>
+
+<style>
+  .menu {
+    width: max-content;
+  }
+
+  .menu li {
+    list-style: none;
+  }
+
+  .menu li a {
+    color: black;
+    background: pink;
+    border: solid black 3px;
+    border-radius: 8px;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    margin: 5px;
+    transition: .5s;
+    position: relative;
+  }
+
+  .menu li a:hover {
+    background-color: rgb(252, 148, 165);
+    border: 3px solid rgb(254, 94, 121);
+  }
+
+  @font-face {
+    font-family: flechita;
+    src: url(./Arrows_tfb.ttf);
+  }
+
+  .menu li.hasChildren a::after {
+    font-family: flechita;
+    content: "gg";
+    transform: rotate(90deg);
+    position: absolute;
+    margin-right: 0.5rem;
+    color: rgb(254, 94, 121);
+    right: 0;
+  }
+
+  .menu .hasChildren ul {
+    position: absolute;
+    top: 60px;
+    left: 100px;
+    opacity: 0;
+    transition: 1s;
+    /* el height 0 y el overflow son para que hagan una transicion hacia abajo */
+    max-height: 0px;
+    overflow: hidden;
+  }
+
+  .menu li.hasChildren:hover ul {
+    opacity: 1;
+    max-height: 800px;
+  }
+
+  .menu .hasChildren li {
+    display: block;
+  }
+
+  .menu li.hasChildren>ul>li>a:after {
+    content: "";
+  }
+</style>
+
+<body>
+  <ul class="menu">
+    <li>
+      <a href="">Home</a>
+    </li>
+    <li class="hasChildren">
+      <a href="">Fotos</a>
+      <ul>
+        <li><a href="#">submenu</a></li>
+        <li><a href="#">submenu</a></li>
+        <li><a href="#">submenu</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="">AboutMe</a>
+    </li>
+    <li>
+      <a href="">Contact</a>
+    </li>
+  </ul>
+</body>
+
+</html>
