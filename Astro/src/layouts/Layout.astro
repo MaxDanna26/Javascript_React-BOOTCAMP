@@ -1,3 +1,9 @@
+---
+import Header from "../components/Header.astro";
+import Product from "../components/Product.astro";
+import Products from "../components/Products.astro";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -7,10 +13,11 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body>
-		<h1>Top 5 de los productos mas vendidos esta semana</h1>
 
-		<slot />
+	<body>
+		<Header />
+		<Products />
+		<Product />
 	</body>
 </html>
 

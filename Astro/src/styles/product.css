@@ -1,0 +1,16 @@
+section {
+  display: flex;
+}
+
+.galery>img {
+  width: 450px;
+  height: auto;
+  margin: 1rem;
+}
+
+.fotos {}
+
+.photos {
+  display: flex;
+  padding: .5rem;
+}

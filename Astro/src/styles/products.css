@@ -1,0 +1,12 @@
+h1 {
+  text-align: center;
+}
+
+.productos {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: auto;
+  background-color: #f2f2f2;
+  justify-content: center;
+}
