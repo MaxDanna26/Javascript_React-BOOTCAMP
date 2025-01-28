@@ -8,12 +8,13 @@
 </head>
 
 <style>
-  .menu {
-    width: max-content;
+  * {
+    box-sizing: border-box;
   }
 
   .menu li {
     list-style: none;
+    width: 300px;
   }
 
   .menu li a {
@@ -29,16 +30,12 @@
     position: relative;
   }
 
-  .menu li a:hover {
-    background-color: rgb(252, 148, 165);
-    border: 3px solid rgb(254, 94, 121);
-  }
-
   @font-face {
     font-family: flechita;
     src: url(./Arrows_tfb.ttf);
   }
 
+  /* Estilos de la flechita */
   .menu li.hasChildren a::after {
     font-family: flechita;
     content: "gg";
@@ -49,28 +46,42 @@
     right: 0;
   }
 
+  /* Estilos del menu desplegable dentro del enlace */
   .menu .hasChildren ul {
     position: absolute;
-    top: 60px;
-    left: 100px;
     opacity: 0;
     transition: 1s;
     /* el height 0 y el overflow son para que hagan una transicion hacia abajo */
     max-height: 0px;
     overflow: hidden;
+    right: -100%;
   }
 
+  li.hasChildren {
+    display: flex;
+    position: relative;
+  }
+
+  li.hasChildren>a {
+    width: 100%;
+    position: relative;
+  }
+
+  /* Estilos para mantener el hover del desplegable */
+  .menu li:hover>a {
+    background-color: rgb(252, 148, 165);
+    border: 3px solid rgb(254, 94, 121);
+  }
+
+  /* Borramos flechas en todos los desplegables */
+  .menu li.hasChildren>ul>li>a:after {
+    content: "";
+  }
+
+  /* Estilos de como aparece este desplegable */
   .menu li.hasChildren:hover ul {
     opacity: 1;
     max-height: 800px;
-  }
-
-  .menu .hasChildren li {
-    display: block;
-  }
-
-  .menu li.hasChildren>ul>li>a:after {
-    content: "";
   }
 </style>
 
@@ -95,5 +106,7 @@
     </li>
   </ul>
 </body>
+
+<script src="/JS/ex3.js"></script>
 
 </html>
