@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>display:grid aplicado | Pablo Monteserín</title>
+  <meta charset="UTF-8">
+  <meta name="description"
+    content="Ejemplo práctico de como usar el estilo de CSS display:grid para montar una regilla de capas que tienen diferentes formas y tamaños">
+  <meta name="robots" content="noindex, follow">
+
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      column-gap: 0;
+      row-gap: 0;
+      height: 400px;
+    }
+
+    .rosita {
+      background: pink;
+      grid-column: 1/4;
+      /*Desde la primera línea divisoria hasta la tercera */
+      grid-row: 1;
+    }
+
+    .verde {
+      background: green;
+      grid-column: 1/4;
+      grid-row: 3;
+    }
+
+    .yellow {
+      background: yellow;
+      grid-column: 1/4;
+      grid-row: 2;
+    }
+
+    .green {
+      color: green
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="rosita"></div>
+    <div class="yellow"></div>
+    <div class="verde"></div>
+  </div>
+</body>
+
+</html>
