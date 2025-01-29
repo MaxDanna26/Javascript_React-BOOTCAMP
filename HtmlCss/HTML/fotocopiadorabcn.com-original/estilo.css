@@ -1,0 +1,353 @@
+BODY {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #3A3539;
+	color: #000000;
+	background-image: url("img/background.jpg");
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+div .clear {
+	clear: both;
+}
+
+/* clearfix */
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+* html .clearfix {
+	height: 1%;
+}
+
+.clearfix {
+	display: block;
+}
+
+IMG {
+	border: none;
+}
+
+A {
+	text-decoration: none;
+	color: #01A5EC;
+}
+
+A:hover {
+	text-decoration: underline;
+}
+
+H1 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #10487b;
+	margin-bottom: 10px;
+}
+
+H2 {
+	font-size: 14px;
+	margin-bottom: 26px;
+}
+
+/* main */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#main {
+	margin: 0 auto;
+	/*Center container on page*/
+	width: 978px;
+	/*Width of main container*/
+	background-color: #fff;
+	padding: 0 1px;
+}
+
+#header {
+	height: 500px;
+	background-image: url("img/header.gif");
+	background-repeat: no-repeat;
+	padding: 0 42px;
+}
+
+.top {
+	display: flex;
+	padding: 1rem;
+	gap: 2rem;
+	align-items: center;
+}
+
+#header #logo {
+	width: 241px;
+	height: 69px;
+}
+
+#header #visor {
+	position: absolute;
+	top: 180px;
+}
+
+#header h1 {
+	position: absolute;
+	top: 133px;
+}
+
+#header #url {
+	font-size: 18px;
+	font-weight: bold;
+	color: #52c7ce;
+}
+
+#header #telefono {
+	text-align: end;
+	font-size: 38px;
+	font-weight: bold;
+	color: #000;
+}
+
+#header #parrafo_1 {
+	width: 230px;
+	font-size: 17px;
+	font-weight: bold;
+	color: #000;
+}
+
+#header #parrafo_2 {
+	width: 230px;
+	font-size: 17px;
+	font-weight: bold;
+	color: #fff;
+}
+
+#header #parrafo_3 {
+	width: 230px;
+	font-size: 17px;
+	color: #000;
+}
+
+#header #url a {
+	color: #52c7ce;
+}
+
+#header #iconos {
+	height: 30px;
+	font-size: 17px;
+}
+
+#header #iconos TD {
+	background-image: url("img/icon_v.gif");
+	background-repeat: no-repeat;
+	padding-left: 40px;
+}
+
+#content {
+	padding: 0 42px;
+	padding-bottom: 15px;
+	width: 890px;
+}
+
+#content H4.destacados {
+	height: 41px;
+	background-color: #efefef;
+	font-size: 20px;
+	text-align: center;
+	width: 585px;
+	padding-top: 17px;
+	margin-bottom: 26px;
+}
+
+#content div.box {
+	width: 178px;
+	height: 270px;
+	float: left;
+	margin-right: 25px;
+	margin-bottom: 40px;
+}
+
+#content div.end {
+	margin-right: 10px;
+}
+
+#content div.box H1 {
+	font-size: 18px;
+	font-weight: bold;
+	color: #30b4c3;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+#content div.box H3 {
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	margin-top: 0px;
+}
+
+#content div.box UL {
+	font-size: 12px;
+	color: #000;
+	font-weight: normal;
+	margin: 0px 0 6px 14px !important;
+}
+
+#content div.box div.renting {
+	background-color: #efefef;
+	margin-bottom: 1px;
+	height: 30px;
+	padding: 4px 14px 4px 14px;
+	;
+	font-weight: bold;
+}
+
+#content div.box div.renting SPAN {
+	color: #14BF7B;
+}
+
+#content div.box div.pedir {
+	background-color: #2abccb;
+	height: 14px;
+	padding: 4px 14px 4px 14px;
+	;
+	color: #fff;
+	font-weight: bold;
+}
+
+#content div.box div.pedir A {
+	color: #fff;
+}
+
+
+div#banner_footer {
+	position: relative;
+	background-image: url("img/banner_pie.gif");
+	background-repeat: no-repeat;
+	width: 891px;
+	height: 218px;
+}
+
+div#banner_footer H3 {
+	color: #fff;
+	font-size: 30px;
+	font-weight: bold;
+	position: absolute;
+	top: 32px;
+	left: 270px;
+}
+
+div#banner_footer P {
+	color: #fff;
+	font-size: 18px;
+	position: absolute;
+	top: 90px;
+	left: 270px;
+}
+
+div#banner_footer SPAN {
+	color: #06A065;
+}
+
+/* footer */
+#footer {
+	padding: 26px 0 10px 0;
+	text-align: center;
+	background-color: #efefef;
+	height: 26px;
+	font-weight: bold;
+}
+
+#footer A {
+	color: #000;
+}
+
+#footer P {
+	text-align: center;
+}
+
+
+/* lead */
+
+#lead {
+	width: 281px;
+	background-color: #353535;
+	color: #fff;
+}
+
+#lead TABLE {
+	width: 100%;
+	margin-left: 22px;
+}
+
+#lead .form {
+	width: 228px;
+	background-color: #fff;
+	border: 1px solid #8b8b8b;
+}
+
+#lead_submit {
+	width: 146px;
+	height: 29px;
+	margin-left: -40px;
+	padding: 0;
+	border: 0;
+	background-color: #14bf7d;
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#lead H4 {
+	padding-top: 17px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+	background-image: url("img/cupon.gif");
+	background-repeat: no-repeat;
+	height: 40px;
+	text-align: center;
+	margin-bottom: 16px;
+}
+
+.lead_message {
+	font-weight: normal;
+	font-size: 11px;
+}
+
+.lead_policy {
+	font-weight: normal;
+}
+
+.lead_policy A {
+	color: #fff;
+	text-decoration: none;
+}
+
+.lead_policy A:hover {
+	text-decoration: underline;
+}
+
+/* lead_sent */
+#lead_sent {
+	padding: 40px;
+	text-align: center;
+	background-color: #FAFAFA;
+	border: 1px solid #EEE;
+	margin-bottom: 50px;
+}
+
+.especial {
+	display: none;
+}
+
+UL {
+	color: #12477d;
+	margin-left: 12px;
+	margin-top: 20px;
+	font-weight: bold;
+}

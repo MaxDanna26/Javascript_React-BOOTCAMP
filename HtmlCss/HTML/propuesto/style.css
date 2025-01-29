@@ -1,0 +1,159 @@
+body {
+  background: url(https://pablomonteserin.com/res/html5/ex/ejercicios-responsive/mobile-first/resuelto/img/background.png);
+  margin: 0;
+  font-family: arial;
+}
+
+#wrapper {
+  max-width: 980px;
+  margin: 0px auto 0px auto;
+  background: rgba(186, 183, 179, 0.2);
+  position: relative;
+}
+
+header {
+  height: 75px;
+  background: url("https://pablomonteserin.com/res/html5/ex/ejercicios-responsive/mobile-first/resuelto/img/pablomonteserin_small.png") center 0 no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+header a.logo {
+  background: url("https://pablomonteserin.com/res/html5/ex/ejercicios-responsive/mobile-first/resuelto/img/logo_small.png") no-repeat;
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  width: 40px;
+  height: 32px;
+  display: block;
+}
+
+@media (min-width: 480px) {
+  header {
+    background: url("https://pablomonteserin.com/res/html5/ex/ejercicios-responsive/mobile-first/resuelto/img/pablomonteserin.png") center no-repeat;
+    height: 200px;
+    background-size: contain;
+  }
+
+  header a.logo {
+    background: url('https://pablomonteserin.com/res/html5/ex/ejercicios-responsive/mobile-first/resuelto/img/logo_medium.png')none;
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    scale: 1.5;
+  }
+
+}
+
+nav {
+  background: #333;
+  margin: 0;
+  text-align: center;
+  display: block;
+  padding: 0;
+}
+
+nav li {
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  padding: 10px;
+  color: black;
+  display: block;
+  text-decoration: none;
+  width: 80%;
+  transition: 1s;
+  color: white;
+  border-bottom: 1px solid grey;
+  margin: 0 auto;
+}
+
+
+nav a:hover {
+  background: grey;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+article {
+  text-align: center;
+  margin: auto;
+  width: 95%;
+  border-bottom: 1px solid grey;
+}
+
+article p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.promo_container {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+}
+
+@media (min-width:480px) {
+  nav li {
+    display: inline-block;
+    width: 10%;
+    margin: auto;
+  }
+
+  nav a {
+    padding: 6px;
+  }
+
+  .promo_container {
+    display: flex;
+    width: 100%;
+  }
+
+}
+
+.promo {
+  padding-left: 10px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid grey;
+}
+
+.promo div {
+  vertical-align: top;
+  display: inline-block;
+}
+
+.img_logo {
+  margin-top: 18.72px;
+  width: 35%;
+  height: 79px;
+  background: red;
+  background: url(https://pablomonteserin.com/res/html5/ex/ejercicios-responsive/mobile-first/resuelto/img/logo_medium.png) no-repeat;
+}
+
+@media (min-width: 480px) {
+  .img_logo {
+    width: 100%;
+  }
+}
+
+.content {
+  width: 65%;
+  text-align: left;
+}
+
+footer {
+  background: black;
+  color: white;
+}

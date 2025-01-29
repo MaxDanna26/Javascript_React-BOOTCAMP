@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  h1 {
+    text-align: center;
+    width: 100%;
+  }
+
+  form {
+    width: 40%;
+    height: 200px;
+    margin: auto;
+  }
+
+
+  label,
+  p,
+  button {
+    display: inline-block;
+    margin: 0.2rem auto;
+    width: 40%;
+    padding: .5rem;
+  }
+
+  .comments {
+    vertical-align: top;
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  button {
+    display: flex;
+  }
+</style>
+
+<body>
+  <h1>
+    Maquetacion de formularios con HTML y CSS
+  </h1>
+
+  <form action="">
+    <label for="nombre">Nombre:</label><input type="text" name="nombre">
+    <label for="email">Email:</label><input type="email" name="email">
+
+    <label for="comentario" class="comments">Comentarios:</label><textarea name="comentarios"></textarea>
+
+    <p>Acepto las condiciones</p><input type="checkbox">
+    <button>Submit</button>
+  </form>
+</body>
+
+</html>

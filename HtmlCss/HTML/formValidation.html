@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation:</title>
+</head>
+
+<style>
+  form {
+    margin: auto;
+    width: 80%;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  label,
+  input {
+    display: inline-block;
+    width: 40%;
+    margin: 0.5rem;
+  }
+
+  button {
+    display: flex;
+    margin: 1rem 0;
+    width: 40%;
+
+  }
+
+  input[required] {
+    border: solid 4px black;
+  }
+
+  input:not([type=submit]):valid {
+    background: palegreen;
+  }
+
+  input:not([type=submit]):invalid {
+    background: salmon;
+  }
+
+  input {
+    width: 200px;
+  }
+
+  input[type=range] {
+    margin: 0;
+  }
+</style>
+
+<body>
+  <h1>Validacion de un formulario con HTML</h1>
+
+  <form action="">
+    <label for="nombre">Nombre:</label><input type="text" name="nombre" required>
+    <label for="edad">Edad:</label><input type="text" name="edad" required>
+    <label for="codigoPostal">Codigo postal:</label><input type="text" name="codigoPostal" required>
+    <label for="email">Email:</label><input type="email" name="email" required>
+    <label for="reserva">Fecha de reserva:</label><input type="date" required>
+    <label for="nota">Nota:</label><input type="range" name="nota" required>
+    <button>Enviar</button>
+  </form>
+</body>
+
+</html>

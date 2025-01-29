@@ -2,15 +2,18 @@ section {
   display: flex;
 }
 
-.galery>img {
-  width: 450px;
-  height: auto;
-  margin: 1rem;
+.galery {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 100%;
+  }
 }
 
-.fotos {}
 
-.photos {
-  display: flex;
-  padding: .5rem;
+.grande {
+  width: 50%;
+  background: url('../IMG/redmiNote\ -\ copia.jpg');
+
 }
