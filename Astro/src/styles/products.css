@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 h1 {
   text-align: center;
 }
@@ -5,8 +9,34 @@ h1 {
 .productos {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
-  margin: auto;
   background-color: #f2f2f2;
   justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.productos h3 {
+  border: 1px solid white;
+  padding: 1rem;
+  margin-top: 8px;
+
+  transition: 0.2s;
+}
+
+.productos h3:first-of-type,
+.productos h3:last-of-type {
+  border: none;
+}
+
+.productos h3:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+h3 {
+  margin: 0;
 }

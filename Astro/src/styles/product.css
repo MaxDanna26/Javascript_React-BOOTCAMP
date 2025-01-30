@@ -1,19 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
 section {
   display: flex;
+  margin: auto;
 }
 
 .galery {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: .5rem;
+  grid-gap: 1rem;
+  padding: .5rem;
 
   img {
-    width: 100%;
+    width: 200px;
+    margin: .5rem;
+    border-radius: 10px;
+    transition: 1s;
+  }
+
+  img:hover {
+    scale: 1.5;
   }
 }
 
+.texto {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 1rem;
 
-.grande {
-  width: 50%;
-  background: url('../IMG/redmiNote\ -\ copia.jpg');
+  a {
+    text-align: end;
+  }
 
+  h2 {
+    font-weight: bold;
+  }
 }

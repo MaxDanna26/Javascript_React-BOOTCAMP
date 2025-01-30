@@ -83,19 +83,13 @@ H2 {
 	align-items: center;
 }
 
+.textoVerde {
+	background-color: #0cb472;
+}
+
 #header #logo {
 	width: 241px;
 	height: 69px;
-}
-
-#header #visor {
-	position: absolute;
-	top: 180px;
-}
-
-#header h1 {
-	position: absolute;
-	top: 133px;
 }
 
 #header #url {

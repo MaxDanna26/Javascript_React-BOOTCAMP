@@ -2,11 +2,39 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem;
+  background-color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  img {
+    width: 85px;
+  }
 }
 
 nav {
-  margin: 1rem;
+  padding: .0 2rem;
+}
+
+nav ul {
+  display: inline-block;
+}
+
+nav ul li {
+  text-decoration: none;
+  list-style: none;
+  width: 100%;
+  transition: .2s;
+}
+
+nav ul li:hover {
+  background-color: black;
+  padding: 0.3rem;
+
+  a {
+    color: white;
+  }
 }
 
 nav a {
@@ -14,9 +42,5 @@ nav a {
   font-weight: bold;
   font-size: 1rem;
   color: black;
-  margin: 1rem;
-}
-
-img {
-  width: 8%;
+  margin: .0 1rem;
 }
