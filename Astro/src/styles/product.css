@@ -10,20 +10,18 @@ section {
 .galery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: .5rem;
-  grid-gap: 1rem;
-  padding: .5rem;
+  align-items: start;
 
   img {
-    width: 200px;
+    width: 350px;
     margin: .5rem;
     border-radius: 10px;
     transition: 1s;
   }
+}
 
-  img:hover {
-    scale: 1.5;
-  }
+h5 {
+  font-size: 1rem;
 }
 
 .texto {

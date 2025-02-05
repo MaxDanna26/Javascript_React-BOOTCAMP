@@ -7,9 +7,10 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  border: 1px solid black;
 
   img {
-    width: 85px;
+    width: 70px;
   }
 }
 
@@ -28,9 +29,9 @@ nav ul li {
   transition: .2s;
 }
 
-nav ul li:hover {
+nav .collapse ul li:hover {
   background-color: black;
-  padding: 0.3rem;
+  padding: 0.2rem;
 
   a {
     color: white;
