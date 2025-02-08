@@ -49,16 +49,24 @@ console.log(getLastElement([1, 2]));
 
 // Contar el número de elementos positivos, negativos y que valgan cero en un array de 10 enteros.Los valores habrán sido harcodeados en un array.La salida por consola debería ser similar a esta:
 
+// Leer 10 enteros harcodeados en un array y mostrar la media de los valores negativos y la de los positivos.
+
 const arrayNumbers = [1, 9, -3, 8, -5, 0, 3, 4, 6, -7];
 let positive = 0;
 let negative = 0;
 let zero = 0;
+let positiveSum = 0;
+let negativeSum = 0;
 
 for (element of arrayNumbers) {
-  if (element > 0)
+  if (element > 0) {
     positive++;
-  else if (element < 0)
+    positiveSum += element;
+  }
+  else if (element < 0) {
     negative++;
+    negativeSum += element;
+  }
   else
     zero++;
 }
@@ -68,11 +76,10 @@ console.log('Cantidad de positivos: ' + positive);
 console.log('Cantidad de negativos: ' + negative);
 console.log('Cantidad de ceros: ' + zero);
 
-// Leer 10 enteros harcodeados en un array y mostrar la media de los valores negativos y la de los positivos.
+console.log(positiveSum / positive);
+console.log(negativeSum / negative);
 
-const mediaPositive = (positive + zero) / 10;
-const mediaNegative = negative / 10;
-console.log(mediaNegative);
+
 
 //  Selecciona un elemento del array arr de tal forma que una variable que debes declarar llamada myData sea igual a 8.
 

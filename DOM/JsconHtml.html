@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Html con JS</title>
+</head>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #f2f2f2;
+    width: 80%;
+    margin: auto;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    background-color: bisque;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  label,
+  input,
+  button,
+  textarea {
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    border-radius: 10px;
+  }
+
+  button {
+    background-color: rgb(201, 151, 86);
+    width: 30%;
+    transition: 0.4s;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background-color: bisque;
+    border: 2px rgb(201, 151, 86) solid;
+  }
+
+  #result,
+  p {
+    width: 80%;
+    border: 1px solid black;
+    height: 35px;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .inline-block {
+    display: flex;
+  }
+</style>
+
+<body>
+  <h1>Calculadora de euros:</h1>
+  <form>
+    <label for="euros">
+      Euros:
+    </label>
+
+    <input type="number" name="euros" id="euros">
+
+    <label for="Dolar">Dolares:</label>
+    <p></p>
+    <button type="button">Calculate</button>
+  </form>
+
+  <h1>Calculadora de grados</h1>
+  <form>
+    <label>Grados centigrados:</label>
+    <input type="number" id="grados">
+
+    <label>Grados fahrenheit</label>
+    <p id="gradosF"></p>
+    <button type="button" id="buttonGrados">Culculate</button>
+  </form>
+
+  <h1>Envio de caja</h1>
+  <form>
+    <label for="name">Nombre del cliente:</label>
+    <input name="name" type="text" id="name">
+
+    <label for="material">Material de la caja</label>
+    <input id="material" type="text">
+
+    <label for="dimensiones">Seleccione el tamaño de las dimensiones de la caja:</label>
+    <div class="inline-block">
+      <input type="radio" name="rBtn" class="radiusBtn" value="pequeñas">Diminutas
+      <input type="radio" name="rBtn" class="radiusBtn" value="medianas">Medianas
+      <input type="radio" name="rBtn" class="radiusBtn" value="grandes">Grandes
+    </div>
+
+    <label for="textarea">Comentarios:</label>
+    <textarea name="textarea" id="comments"></textarea>
+
+    <button type="button" id="btnBox">Enviar</button>
+
+    <p id="result">
+  </form>
+</body>
+
+<script>
+  const calcular = () => {
+    const calculo = document.querySelector("#euros").value;
+    document.querySelector('p').textContent = calculo * 2;
+  }
+
+  document.querySelector('button').addEventListener('click', calcular);
+
+  const calcularGrados = () => {
+    const centigrados = document.querySelector('#grados').value;
+    console.log(centigrados);
+    const fahrenheit = (9 / 5) * centigrados + 32;
+    document.getElementById('gradosF').textContent = fahrenheit;
+  }
+
+  document.getElementById('buttonGrados').addEventListener('click', calcularGrados);
+
+  const respuesta = () => {
+    const name = document.getElementById('name').value;
+    const box = document.getElementById('material').value;
+    const boxDimension = document.querySelector('[name=rBtn]:checked').value;
+    const comments = document.getElementById('comments').value;
+
+    const msj = name + ' ha pedido una caja de ' + box + ' con unas dimensiones ' + boxDimension + '. ' + comments;
+
+    document.getElementById('result').textContent = msj;
+  }
+
+  document.getElementById('btnBox').addEventListener('click', respuesta);
+
+</script>
+
+</html>
