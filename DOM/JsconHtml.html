@@ -14,7 +14,7 @@
 
   body {
     background-color: #f2f2f2;
-    width: 80%;
+    width: 60%;
     margin: auto;
   }
 
@@ -40,7 +40,7 @@
   textarea {
     padding: 10px;
     margin: 5px;
-    width: 80%;
+    width: 50%;
     border-radius: 10px;
   }
 
@@ -50,15 +50,27 @@
     transition: 0.4s;
   }
 
+  button:disabled {
+    background-color: #f2f2f2;
+    color: black;
+  }
+
+  button:disabled:hover {
+    background-color: #f2f2f2;
+    color: black;
+    border: 1px solid black;
+  }
+
   button:hover {
     cursor: pointer;
-    background-color: bisque;
+    color: white;
+    background-color: rgb(201, 170, 86);
     border: 2px rgb(201, 151, 86) solid;
   }
 
   #result,
   p {
-    width: 80%;
+    width: 50%;
     border: 1px solid black;
     height: 35px;
     background-color: white;
@@ -71,8 +83,8 @@
 </style>
 
 <body>
-  <h1>Calculadora de euros:</h1>
   <form>
+    <h1>Calculadora de euros:</h1>
     <label for="euros">
       Euros:
     </label>
@@ -84,8 +96,8 @@
     <button type="button">Calculate</button>
   </form>
 
-  <h1>Calculadora de grados</h1>
   <form>
+    <h1>Calculadora de grados</h1>
     <label>Grados centigrados:</label>
     <input type="number" id="grados">
 
@@ -94,8 +106,8 @@
     <button type="button" id="buttonGrados">Culculate</button>
   </form>
 
-  <h1>Envio de caja</h1>
   <form>
+    <h1>Envio de caja</h1>
     <label for="name">Nombre del cliente:</label>
     <input name="name" type="text" id="name">
 
@@ -115,6 +127,17 @@
     <button type="button" id="btnBox">Enviar</button>
 
     <p id="result">
+  </form>
+
+  <form>
+    <h1>Let's Play: Numero secreto</h1>
+    <input type="number" placeholder="Ingresa el numero secreto" id="uNumber">
+
+    <button type="button" id="btnNumber">
+      Try!
+    </button>
+
+    <p id="resultNumber"></p>
   </form>
 </body>
 
@@ -147,6 +170,38 @@
   }
 
   document.getElementById('btnBox').addEventListener('click', respuesta);
+
+  const MIN = 0;
+  const MAX = 5;
+  let secretNumber = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
+  console.log(secretNumber);
+  const btn = document.getElementById('btnNumber');
+  const p = document.getElementById('resultNumber');
+  let intentos = 3;
+
+  const playNumber = () => {
+    const uNumber = parseInt(document.getElementById('uNumber').value);
+
+    if (uNumber === secretNumber) {
+      p.style.backgroundColor = 'Green';
+      p.style.color = 'White';
+      p.textContent = "¡Felicidades! Has acertado el número.";
+      btn.textContent = "Start again!";
+      btn.disabled = true;
+    } else {
+      intentos--;
+      if (intentos > 0) {
+        p.textContent = 'Incorrecto. Te quedan ' + intentos + ' intentos.';
+        btn.textContent = 'Try Again!';
+      } else {
+        p.style.backgroundColor = 'Red';
+        p.textContent = 'Has perdido. El número era ' + secretNumber + '.';
+        btn.disabled = true;
+      }
+    }
+  }
+
+  btn.addEventListener('click', playNumber);
 
 </script>
 
