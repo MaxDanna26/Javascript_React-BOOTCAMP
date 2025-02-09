@@ -36,12 +36,12 @@
 
   label,
   input,
-  button,
-  textarea {
+  button {
     padding: 10px;
     margin: 5px;
     width: 50%;
     border-radius: 10px;
+    text-align: center;
   }
 
   button {
@@ -69,12 +69,21 @@
   }
 
   #result,
-  p {
+  p,
+  select,
+  textarea {
     width: 50%;
-    border: 1px solid black;
+    border: 2px solid black;
     height: 35px;
     background-color: white;
     border-radius: 10px;
+    text-align: center;
+  }
+
+  input:disabled {
+    background-color: white;
+    text-align: center;
+    border: 2px solid black;
   }
 
   .inline-block {
@@ -139,6 +148,36 @@
 
     <p id="resultNumber"></p>
   </form>
+
+  <form action="#">
+    <div class="calculate">
+      <label for="nights">
+        Introduzca el numero de noches
+      </label>
+      <input type="number" id="nights">
+      <select name="city" id="city">
+        <option value="Oviedo">Oviedo</option>
+        <option value="Tokyo">Tokyo</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Barcelona">Barcelona</option>
+      </select>
+
+    </div>
+    <button type="button" id="travelBtn">Calcular Coste</button>
+
+    <label for="hotelCost">Coste de hotel:</label>
+    <input type="number" id="hotelCost" disabled>
+
+    <label for="travelCost">Coste de viaje:</label>
+    <input type="number" id="travelCost" disabled>
+
+    <label for="rentCar">Coste alquiler coche:</label>
+    <input type="number" id="rentCar" disabled>
+
+    <label for="totalCost">Coste total:</label>
+    <input type="number" id="totalCost" disabled>
+
+  </form>
 </body>
 
 <script>
@@ -202,6 +241,60 @@
   }
 
   btn.addEventListener('click', playNumber);
+
+  const calculateCost = () => {
+    const numNights = document.getElementById('nights').value;
+    const city = document.getElementById('city').value;
+
+    const hotelCost = calculateHotelCost(numNights);
+    const rentCar = calculateRentCar(numNights);
+    const plane = calculatePlane(city, numNights);
+
+    document.getElementById('hotelCost').value = hotelCost;
+    document.getElementById('travelCost').value = plane;
+    document.getElementById('rentCar').value = rentCar;
+    document.getElementById('totalCost').value = rentCar + hotelCost + plane;
+
+  }
+
+  const calculateHotelCost = (numNights) => {
+    const cost = 140 * numNights;
+    return cost;
+  }
+
+  const calculatePlane = (city, numNights) => {
+    let price = 0;
+
+    switch (city) {
+      case 'Oviedo': price = 15; break;
+      case 'Tokyo': price = 700; break;
+      case 'Madrid': price = 90; break;
+      case 'Barcelona': price = 90; break;
+    }
+
+    if (numNights >= 3) {
+      price *= 0.9;
+    }
+
+    return price;
+  }
+
+  const calculateRentCar = (numNights) => {
+    let price = 40;
+
+    price *= numNights;
+    if (numNights >= 7) {
+      price = price - 50;
+    }
+    else if (numNights >= 3) {
+      price = price - 20;
+    }
+
+    return price;
+  }
+
+  document.getElementById('travelBtn').addEventListener('click', calculateCost);
+
 
 </script>
 
