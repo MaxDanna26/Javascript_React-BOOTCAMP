@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <title>Animated</title>
+</head>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .red {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    margin: 1rem;
+  }
+</style>
+
+<body>
+  <div class="red">
+
+  </div>
+  <button id="btn">Animar</button>
+</body>
+
+<script>
+  document.getElementById('btn').addEventListener('click', () => {
+    document.querySelector('.red').classList.add('animate__animated', 'animate__bounce');
+  });
+
+  document.querySelector('.red').addEventListener('animationend', () => {
+    document.querySelector('.red').classList.remove('animate__animated', 'animate__bounce');
+  });
+
+
+</script>
+
+</html>
