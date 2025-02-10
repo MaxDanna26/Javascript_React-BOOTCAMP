@@ -7,10 +7,45 @@
   <title>Document</title>
 </head>
 
+<style>
+  .red,
+  .yellow {
+    display: flex;
+    width: 100%;
+    height: 250px;
+    text-align: center;
+  }
+
+  .red:hover,
+  .yellow:hover {
+    cursor: pointer;
+  }
+
+  .red {
+    background-color: red;
+  }
+
+  .yellow {
+    background-color: yellow;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
 <body>
 
-</body>
+  <div class="red"></div>
+  <div class="yellow"></div>
 
-<script src="./.js"></script>
+  <input type="number" id="input">
+  <div id="repetir"></div>
+
+  <script src="./innerhtml.js"></script>
+</body>
 
 </html>

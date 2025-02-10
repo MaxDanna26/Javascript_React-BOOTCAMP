@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Html con JS</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <form action="#">
+    <h1>Calculadora de euros:</h1>
+    <label for="euros">
+      Euros:
+    </label>
+
+    <input type="number" name="euros" id="euros">
+
+    <label for="Dolar">Dolares:</label>
+    <p></p>
+    <button type="button">Calculate</button>
+  </form>
+
+  <form action="#">
+    <h1>Calculadora de grados</h1>
+    <label>Grados centigrados:</label>
+    <input type="number" id="grados">
+
+    <label>Grados fahrenheit</label>
+    <p id="gradosF"></p>
+    <button type="button" id="buttonGrados">Culculate</button>
+  </form>
+
+  <form action="#">
+    <h1>Envio de caja</h1>
+    <label for="name">Nombre del cliente:</label>
+    <input name="name" type="text" id="name">
+
+    <label for="material">Material de la caja</label>
+    <input id="material" type="text">
+
+    <label for="dimensiones">Seleccione el tamaño de las dimensiones de la caja:</label>
+    <div class="inline-block">
+      <input type="radio" name="rBtn" class="radiusBtn" value="pequeñas">Diminutas
+      <input type="radio" name="rBtn" class="radiusBtn" value="medianas">Medianas
+      <input type="radio" name="rBtn" class="radiusBtn" value="grandes">Grandes
+    </div>
+
+    <label for="textarea">Comentarios:</label>
+    <textarea name="textarea" id="comments"></textarea>
+
+    <button type="button" id="btnBox">Enviar</button>
+
+    <p id="result">
+  </form>
+
+  <form action="#">
+    <h1>Let's Play: Numero secreto</h1>
+    <input type="number" placeholder="Ingresa el numero secreto" id="uNumber">
+
+    <button type="button" id="btnNumber">
+      Try!
+    </button>
+
+    <p id="resultNumber"></p>
+  </form>
+
+  <form action="#">
+    <label for="nights">
+      Introduzca el numero de noches
+    </label>
+    <div>
+      <input type="number" id="nights">
+      <select name="city" id="city">
+        <option value="Oviedo">Oviedo</option>
+        <option value="Tokyo">Tokyo</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Barcelona">Barcelona</option>
+      </select>
+
+    </div>
+    <button type="button" id="travelBtn">Calcular Coste</button>
+
+    <label for="hotelCost">Coste de hotel:</label>
+    <input type="number" id="hotelCost" disabled>
+
+    <label for="travelCost">Coste de viaje:</label>
+    <input type="number" id="travelCost" disabled>
+
+    <label for="rentCar">Coste alquiler coche:</label>
+    <input type="number" id="rentCar" disabled>
+
+    <label for="totalCost">Coste total:</label>
+    <input type="number" id="totalCost" disabled>
+
+  </form>
+</body>
+
+<script src="./js.js"></script>
+
+</html>

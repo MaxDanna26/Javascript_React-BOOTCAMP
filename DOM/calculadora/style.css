@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+.calculadora {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .2rem;
+  height: 80vh;
+}
+
+.result {
+  margin: 0.3rem auto;
+  width: 95%;
+  border: 1px solid black;
+  height: 70px;
+  border-radius: 30px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 40px;
+}
