@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toogle Src with js</title>
+</head>
+
+<style>
+  img {
+    width: 300px;
+  }
+</style>
+
+<body>
+  <img src="./PinguLinux_Ying_Yang.png" alt="Pinguino">
+  <h2>¿Cuales de los siguientes lenguajes son orientados a objetos?: <span class="red">Java</span>,
+    <span class="red">vb6</span>,<span class="red">C++</span> <span class="red">Cobol</span> ?
+  </h2>
+  <button>Ver resultados</button>
+
+  <div>
+    <input class="suma" type="number">
+    <input class="suma" type="number">
+    <input class="suma" type="number">
+    <button class="calcular">Calcular</button>
+    <p>El resultado es:</p>
+    <input class="result" type="number">
+  </div>
+</body>
+
+<script>
+  const img = document.querySelector('img');
+  let foto = true;
+
+  const toogleSrc = () => {
+    foto = !foto;
+    if (foto) { img.setAttribute('src', './PinguLinux_Ying_Yang.png') }
+    else { img.setAttribute('src', './PinguLinux_Yoda.jpg') }
+  }
+
+  img.addEventListener('click', toogleSrc);
+
+  const btn = document.querySelector('button');
+
+  const showAnswers = () => {
+    document.querySelectorAll('.red').forEach(obj => {
+      obj.style.backgroundColor = 'red';
+    });
+  }
+  btn.addEventListener('click', showAnswers);
+
+  const btnSuma = document.querySelector('.calcular');
+  let result = 0;
+
+  btnSuma.addEventListener("click", () => {
+    result = Array.from(document.querySelectorAll("input")).reduce(
+      (acc, element) => acc + Number(element.value),
+      0
+    );
+    document.querySelector('.result').value = result;
+  });
+</script>
+
+</html>
