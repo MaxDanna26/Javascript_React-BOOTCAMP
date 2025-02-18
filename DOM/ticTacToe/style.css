@@ -13,8 +13,6 @@ body {
 
 #dimension {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
   aspect-ratio: 1;
   margin: auto;
   height: 95%;

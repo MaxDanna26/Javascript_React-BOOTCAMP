@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtro con js</title>
+</head>
+
+<style>
+  .container {
+    margin: auto;
+    width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .link a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .box {
+    width: 150px;
+    height: 150px;
+    transition: 1s;
+    margin: 10px;
+  }
+
+  .box.gray {
+    background-color: #6C757D;
+  }
+
+  .box.blue {
+    background-color: #537D91;
+  }
+
+  .box.orange {
+    background-color: #F77754;
+  }
+
+  .disabled {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    margin: 0;
+
+  }
+</style>
+
+<body>
+  <div class="link">
+    <a href="#all" class="all">Todos</a>
+    <a href="#blue" class="blue">Azul</a>
+    <a href="#orange" class="orange">Naranja</a>
+    <a href="#gray" class="gray">Gris</a>
+  </div>
+  <div class="container">
+    <div class="box blue"></div>
+    <div class="box gray"></div>
+    <div class="box orange"></div>
+    <div class="box orange"></div>
+    <div class="box blue"></div>
+    <div class="box gray"></div>
+    <div class="box orange"></div>
+    <div class="box blue"></div>
+    <div class="box gray"></div>
+    <div class="box orange"></div>
+    <div class="box orange"></div>
+    <div class="box blue"></div>
+    <div class="box gray"></div>
+    <div class="box orange"></div>
+    <div class="box blue"></div>
+    <div class="box gray"></div>
+    <div class="box orange"></div>
+    <div class="box orange"></div>
+    <div class="box blue"></div>
+    <div class="box gray"></div>
+    <div class="box orange"></div>
+    <div class="box blue"></div>
+    <div class="box gray"></div>
+    <div class="box orange"></div>
+    <div class="box orange"></div>
+    <div class="box blue"></div>
+    <div class="box gray"></div>
+    <div class="box orange"></div>
+  </div>
+</body>
+
+<script>
+  const filter = (filtro) => {
+    document.querySelectorAll('.box').forEach(div => {
+      if (filtro === 'all') {
+        div.style.display = ''
+
+      }
+      else if (!div.classList.contains(filtro)) {
+        div.classList.add('disabled');
+      }
+    })
+  }
+
+  document.querySelectorAll('a').forEach(enlace => {
+    let filtro = enlace.getAttribute('href');
+    filtro = filtro.substring(1, filtro.length);
+    console.log(filtro);
+    enlace.addEventListener('click', () => filter(filtro))
+  });   
+</script>
+
+</html>

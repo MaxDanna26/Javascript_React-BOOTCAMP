@@ -28,6 +28,28 @@
     <p>El resultado es:</p>
     <input class="result" type="number">
   </div>
+
+  <p>¿Que super heroe es más fuerte?</p>
+
+  <p><input type="radio" name="q1">Batman</p>
+
+  <p><input type="radio" name="q1" class="right">Superman</p>
+  <br />
+
+  <p>¿En qué consiste el sentido aracnido de Spiderman?</p>
+
+  <p><input type="radio" name="q2">Puede detectar cuando hay arañas cerca.</p>
+
+  <p><input type="radio" name="q2" class="right">Puede detectar cuando hay un peligro cerca.</p><br />
+
+  <p>¿Cuál es el verdadero nombre de Spiderman?</p>
+
+  <p><input type="radio" name="q3" class="right">Peter Parker</p>
+
+
+  <p><input type="radio" name="q3">Bruce Wayne</p>
+
+  <button class="evaluate">Comprobar respuestas</button>
 </body>
 
 <script>
@@ -61,6 +83,25 @@
     );
     document.querySelector('.result').value = result;
   });
+
+  const evaluateAnswers = () => {
+    document.querySelectorAll('input[type=radio]').forEach((input) => {
+      input.closest('p').style.backgroundColor = 'transparent';
+    });
+
+    document.querySelectorAll('input[type=radio]:checked').forEach((answer) => {
+      if (answer.classList.contains('right')) {
+        answer.closest('p').style.backgroundColor = 'palegreen';
+      } else {
+        answer.closest('p').style.backgroundColor = 'red';
+      }
+    });
+  }
+
+  document.querySelector('.evaluate').addEventListener('click', evaluateAnswers);
+
 </script>
+
+
 
 </html>

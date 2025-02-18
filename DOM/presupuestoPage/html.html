@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presupuesto Page</title>
+</head>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+    align-items: center;
+    border: 1px solid black;
+    margin: 0.5rem;
+    border-radius: 10px;
+    padding: .5rem;
+  }
+
+  .inputs {
+    display: block;
+  }
+
+  .precio {
+    width: 95%;
+    height: 50px;
+    margin: 0 .5rem;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <h2>diseño</h2>
+    <div class="inputs">
+      <input name="diseño" type="radio" value="50">El cliente me suministra el diseño.
+      <input name="diseño" type="radio" value="100">Yo me encargo del diseño
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Tienda</h2>
+    <div class="inputs">
+      <input type="radio" value="100" name="tienda">Con carrito
+      <input type="radio" value="50" name="tienda">Sin carrito
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Membership</h2>
+    <div class="inputs">
+      <input name="suscripcion" type="radio" value="100">Con suscripcion
+      <input name="suscripcion" type="radio" value="50">Sin suscripcion
+    </div>
+  </div>
+
+  <input type="number" class="precio">
+
+  <script>
+
+    const calcular = () => {
+      let price = 0;
+
+      // Recorremos solo los radio buttons que están seleccionados
+      document.querySelectorAll('input[type=radio]:checked').forEach(element => {
+        price += Number(element.value);
+      });
+
+      // Actualizamos el campo de precio
+      document.querySelector('.precio').value = price;
+    };
+
+    // Agregar evento a cada radio button
+    document.querySelectorAll('input[type=radio]').forEach(input => {
+      input.addEventListener('click', calcular);
+    });
+
+  </script>
+</body>
+
+</html>

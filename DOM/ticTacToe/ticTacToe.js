@@ -7,14 +7,12 @@ let turno = false;
 const createBoard = () => {
   for (let i = 0; i < dimension; i++) {
     for (let j = 0; j < dimension; j++) {
-      arr[i][j] = null; // La matriz solo guarda valores reales
+      arr[i][j] = null;
     }
   }
 };
 
 const printBoard = () => {
-  div.innerHTML = ""; // Limpiar el tablero
-
   for (let i = 0; i < dimension; i++) {
     for (let j = 0; j < dimension; j++) {
       const cell = document.createElement('div');
@@ -22,60 +20,77 @@ const printBoard = () => {
       cell.id = `${i}.${j}`;
       cell.setAttribute("fila", i);
       cell.setAttribute("columna", j);
-      cell.onclick = () => printPosition(i, j); // Evento corregido
-      cell.textContent = arr[i][j] || ""; // Mostrar X u O si ya se ha jugado
+      cell.onclick = () => printPosition(i, j);
+      cell.textContent = arr[i][j] || "";
       div.appendChild(cell);
     }
   }
+  document.getElementById('dimension').style.gridTemplateColumns = 'repeat(' + dimension + ', 1fr)';
+  document.getElementById('dimension').style.gridTemplateRows = 'repeat(' + dimension + ', 1fr)';
 };
 
 const printPosition = (fila, columna) => {
-  if (arr[fila][columna] !== null || winner) return; // Evita sobreescribir y si ya hay un ganador
+  if (arr[fila][columna] !== null || winner) { console.log('No puedes jugar aqui!') }
+  else {
+    const player = turno ? 'X' : 'O';
 
-  const player = turno ? 'X' : 'O';
-  arr[fila][columna] = player; // Guardar jugada en la matriz
-  document.getElementById(`${fila}.${columna}`).textContent = player;
+    arr[fila][columna] = player;
+    document.getElementById(`${fila}.${columna}`).textContent = player;
 
-  if (isWinner(fila, columna, player)) {
-    winner = true;
-    console.log(`¡${player} ha ganado!`);
+    checkingDir(fila, columna, player);
   }
-  console.log(arr);
-  turno = !turno; // Cambiar turno
+  turno = !turno;
 };
 
+const checkingDir = (fila, columna, player) => {
+  for (let x = 0; x < dimension; x++) {
+    if (isWinner(fila, x, player) || isWinner(x, columna, player) ||
+      isWinner(x, x, player) || isWinner(x, dimension - x - 1, player)) {
+      winner = true;
+      console.log(`¡${player} ha ganado!`);
+      return;
+    }
+  }
+}
+
 const isWinner = (i, j, player) => {
-  console.log(`Verificando victoria para ${player} en (${i},${j})`);
   // Control horizontal
-  if (
-    j <= dimension - 4 &&
-    arr[i][j] === player &&
-    arr[i][j + 1] === player &&
-    arr[i][j + 2] === player &&
-    arr[i][j + 3] === player
-  ) {
+  if (j + dimension - 1 < dimension && arr[i][j] !== null &&
+    arr[i][j] === arr[i][j + 1] &&
+    arr[i][j] === arr[i][j + 2] &&
+    arr[i][j] === arr[i][j + 3]) {
     console.log(`¡${player} ha ganado en horizontal!`);
     return true;
-  }
-
-  // Control vertical
-  if (
-    i <= dimension - 4 &&
-    arr[i][j] === player &&
-    arr[i + 1][j] === player &&
-    arr[i + 2][j] === player &&
-    arr[i + 3][j] === player
-  ) {
+  } else if (i + dimension - 1 < dimension && arr[i][j] !== null &&
+    arr[i][j] === arr[i + 1][j] &&
+    arr[i][j] === arr[i + 2][j] &&
+    arr[i][j] === arr[i + 3][j]) {
     console.log(`¡${player} ha ganado en vertical!`);
     return true;
   }
-  console.log(`No hay victoria en (${i},${j})`);
-  return false;
+  else if (i + dimension - 1 < dimension && j + dimension - 1 < dimension &&
+    arr[i][j] !== null &&
+    arr[i][j] === arr[i + 1][j + 1] &&
+    arr[i][j] === arr[i + 2][j + 2] &&
+    arr[i][j] === arr[i + 3][j + 3]) {
+    console.log(`¡${player} ha ganado en diagonal principal!`);
+    return true;
+  }
+  else if (i + dimension - 1 < dimension && j - dimension - 1 >= 0 &&
+    arr[i][j] !== null &&
+    arr[i][j] === arr[i + 1][j - 1] &&
+    arr[i][j] === arr[i + 2][j - 2] &&
+    arr[i][j] === arr[i + 3][j - 3]) {
+    console.log(`¡${player} ha ganado en diagonal secundaria!`);
+    return true;
+  }
+  else {
+    return false;
+  }
 };
 
 // Comienzo del juego
 const ticTacToe = () => {
-  createBoard();
   printBoard();
 };
 
