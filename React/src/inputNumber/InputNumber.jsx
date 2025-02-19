@@ -1,24 +1,19 @@
 import propTypes from 'prop-types';
-import { useRef } from 'react';
 
-export default function InputNumber({ act }) {
-  const input = useRef();
-
-  const change = (valor) => {
-    input.current.value = valor;
-    return valor
-  }
-
+export default function InputNumber({ value, updateValue }) {
   return (
     <div>
-      <button onClick={() => act(change(Number(input.current.value) - 1))}>-</button>
-      <input onChange={() => act(Number(input.current.value))} ref={input}></input>
-      <button onClick={() => act(change(Number(input.current.value) + 1))}>+</button>
+      <button onClick={() => updateValue(value - 1)}>-</button>
+      <input type='text'
+        onChange={(e) => updateValue(+e.target.value)}
+        value={value}></input>
+      <button onClick={() => updateValue(value + 1)}>+</button>
     </div>
   )
 }
 
 InputNumber.propTypes = {
-  act: propTypes.func,
+  updateValue: propTypes.func,
+  value: propTypes.number,
 }
 

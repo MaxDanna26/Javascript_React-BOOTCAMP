@@ -8,7 +8,7 @@ export default function App() {
 
   return (
     <div>
-      <InputNumber act={setInfo} />
+      <InputNumber updateValue={setInfo} value={info} />
       <Resul resul={info} />
     </div>
   )
