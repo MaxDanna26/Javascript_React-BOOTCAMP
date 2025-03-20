@@ -3,9 +3,9 @@ import styled, { createGlobalStyle } from "styled-components";
 import { TfiSave } from "react-icons/tfi";
 import backgroundImage from '../public/marek-piwnicki-FrR0nSrJyyw-unsplash.jpg'
 
-const desktopStartWidth = 996;
-const desktop = `@media (min-width: ${desktopStartWidth}px)`;
-const mobile = `@media (max-width: ${desktopStartWidth}px)`;
+// const desktopStartWidth = 996;
+// const desktop = `@media (min-width: ${desktopStartWidth}px)`;
+// const mobile = `@media (max-width: ${desktopStartWidth}px)`;
 
 export const GlobalStyle = createGlobalStyle`
 *{
@@ -14,20 +14,16 @@ export const GlobalStyle = createGlobalStyle`
   body{
     margin: 0;
     padding: 0;
-    ${'' /* overflow-x: hidden; */}
+    overflow-x: hidden;
     background: url(${backgroundImage});
     background-size: cover;
     text-align: center;
     background-repeat: no-repeat;
-    background-position: 50%;
-    height: 100vh;
-
-    ${desktop}
-    {
-    }
+    background-position: center;
+    min-height: 100vh;
+    height: 100%;
   }
   #root{
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,8 +33,8 @@ export const GlobalStyle = createGlobalStyle`
 export const IconStyled = styled(TfiSave).attrs(() => ({
   size: 25,
 }))`
-  background-color: ${({ bgColor }) => bgColor || "transparent"};
-  padding: 8px;
+  background-color: ${({ $bgColor }) => $bgColor || "transparent"};
+  padding: 4px;
   border-radius: 5px;
 `;
 
@@ -109,17 +105,9 @@ export const Card = styled.div`
   padding: 1rem;
   border: 1px solid black;
   border-radius: 5px;
-  width: 100%;
-  overflow: hidden;
-
-  ${mobile} {
-    width: 100%
-  }
-
-  ${desktop}{
-    min-width: 996px;
-    width: 80%;
-    }
+  max-width: 996px;
+  width: 90%;
+  margin: 4rem auto 2rem auto;
 `;
 
 export const Botonera = styled.div`
@@ -133,7 +121,8 @@ padding: ${({ $pd }) => $pd ? $pd : '8px'};
 background-color: #EBEFF2;
 border: 0px solid #EBEFF2;
 border-radius: 4px;
-width: 90%;
+width: 100%;
+text-align: center;
 transition: 0.1s;
 &:hover{
   box-shadow: 0px 0px 4px 4px #EBEFF2;
@@ -159,7 +148,7 @@ export const Back = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #F4EDE0;
+  background-color: #403B22;
   width: 320px;
   padding: 20px;
   border-radius: 12px;
@@ -168,20 +157,16 @@ export const Back = styled.div`
 `;
 
 export const Relative = styled.div`
-  position: relative;
   width: 100%;
   text-align: center;
 `;
 
-export const CloseButton = styled.button`
-  position: absolute;
-  bottom: 30px;
-  right: 20px;
+export const CloseButton = styled.button`  
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #735B2F;
+  color: #EBEFF2;
   transition: 0.2s;
 
   &:hover {

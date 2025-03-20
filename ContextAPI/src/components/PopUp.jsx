@@ -1,32 +1,35 @@
-import { Back, Overlay, Relative, CloseButton, Button, Input, IconStyled } from '../styled';
+import { Back, Overlay, CloseButton, Button, Input, IconStyled, Container } from '../styled';
 import PropTypes from 'prop-types';
 import { updateItem } from '../services/api';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useUserContext } from '../provider/UserProvider';
 
-const PopUp = ({ visible, setVisible, children, taskId, updateList }) => {
-  const handleClose = () => {
-    setVisible(!visible);
-  };
-  const [editData, setEditData] = useState('');
+const PopUp = ({ visible, setVisible, taskId, content, updateList }) => {
+  const [editData, setEditData] = useState(content);
   const { user } = useUserContext();
 
+  useEffect(() => {
+    if (visible) {
+      setEditData(content);
+    }
+  }, [visible, content]);
+
+  const handleSave = async () => {
+    await updateItem(user.uid, taskId, { task: editData });
+    updateList;
+    setVisible(false);
+  };
 
   return (
-    <Overlay $visible={visible} onClick={handleClose}>
+    <Overlay $visible={visible} onClick={() => setVisible(false)}>
       <Back onClick={(e) => e.stopPropagation()}>
-        <Relative>
-          <CloseButton onClick={handleClose}>&times;</CloseButton>
-          <Input defaultValue={editData} onChange={(e) => setEditData(e.target.value)}></Input>
-          <Button onClick={async () => (
-            await updateItem(user.uid, taskId, { 'task': editData }),
-            await updateList(user.uid),
-            setVisible(false)
-          )}>
-            <IconStyled />
+        <Container >
+          <CloseButton onClick={() => setVisible(false)}>&times;</CloseButton>
+          <Input value={editData} onChange={(e) => setEditData(e.target.value)} />
+          <Button $bg='white' onClick={handleSave}>
+            <IconStyled color='black' />
           </Button>
-        </Relative>
-        {children}
+        </Container>
       </Back>
     </Overlay>
   );
@@ -37,7 +40,7 @@ export default PopUp;
 PopUp.propTypes = {
   visible: PropTypes.bool,
   setVisible: PropTypes.func,
-  children: PropTypes.node,
   taskId: PropTypes.string,
+  content: PropTypes.string,
   updateList: PropTypes.func,
 };
