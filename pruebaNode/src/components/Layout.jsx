@@ -14,6 +14,9 @@ function Layout({ children }) {
         <Li>
           <Enlace to='/delete'>Delete</Enlace>
         </Li>
+        <Li>
+          <Enlace to='/update'>Update</Enlace>
+        </Li>
       </Ul>
       <main>{children}</main>
     </Container>

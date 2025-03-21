@@ -1,31 +1,32 @@
-import { createItem, getItems } from '../services/api';
 import { useEffect, useState, useRef } from 'react';
 import { Button, Input, P } from './styled';
+import { Insert, readCiudadanos } from './services/api';
+
 
 function Create() {
   const name = useRef();
+  const dni = useRef();
+  const contrasenya = useRef();
   const [items, setItems] = useState();
 
   useEffect(() => update, []);
 
   const update = () => {
-    getItems().then(setItems);
+    readCiudadanos().then(setItems);
   }
 
-  const createObj = (name) => {
-    const obj = { 'name': name };
-    return obj;
-  }
   return (
     <div>
-      <Input ref={name} placeholder="name" />
-      <Button onClick={() => {
-        const obj = createObj(name.current.value);
-        createItem(obj);
+      <Input type='text' ref={name} placeholder="nombre" />
+      <Input type='password' ref={contrasenya} placeholder="password" />
+      <Input type='text' ref={dni} placeholder="dni" />
+
+      <Button onClick={async () => {
+        await Insert(dni.current.value, contrasenya.current.value, name.current.value);
         update();
       }}>Añadir</Button>
 
-      {items?.map(item => <P key={item.id}>{item.id} - {item.name}</P>)}
+      {items?.map(item => <P key={item.id}>{item.id} - {item.dni} - {item.nombre} - {item.contraseña}</P>)}
     </div>
   )
 }

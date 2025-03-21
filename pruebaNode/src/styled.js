@@ -47,4 +47,7 @@ border-radius: 5px;
 background-color: red;
 color: white;
 border: none;
+&:hover{
+  cursor: pointer;
+}
 `;

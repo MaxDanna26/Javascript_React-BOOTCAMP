@@ -1,24 +1,24 @@
-import { useEffect, useRef, useState } from 'react';
-import { deleteItem, getItems } from '../services/api';
+import { useEffect, useState } from 'react';
 import { Button, Container, Input, P } from './styled';
+import { readCiudadanos, deleteCiudadano } from './services/api';
 
 function Delete() {
-  const idObj = useRef();
+  const [id, setId] = useState('');
   const [items, setItems] = useState();
 
-  useEffect(() => { getItems().then(setItems) }, [])
+  useEffect(() => { readCiudadanos().then(setItems) }, [])
 
-  const update = () => { getItems().then(setItems) }
+  const update = () => { readCiudadanos().then(setItems) }
 
   return (
     <Container>
-      <Input ref={idObj} placeholder='Id guest'></Input>
+      <Input value={id} placeholder='Id to delete' onChange={(e) => setId(e.target.value)}></Input>
       <Button onClick={() => {
-        deleteItem(idObj.current.value);
+        deleteCiudadano(id);
         update();
       }}>Borrar</Button>
 
-      {items?.map(item => <P key={item.id}>{item.id} - {item.name}</P>)}
+      {items?.map(item => <P key={item.id}>{item.id} - {item.dni} - {item.nombre} - {item.contraseña}</P>)}
     </Container>
 
   )
